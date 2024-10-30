@@ -1,26 +1,50 @@
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# Monolegal HTTP
 
-## Features
+Este es un paquete de Flutter para manejar solicitudes HTTP de manera sencilla y eficiente.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Instalación
 
-## Getting started
+Agrega esta línea a tu archivo `pubspec.yaml`:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+    monolegal_http: ^0.0.2
 ```
 
-## Additional information
+Luego, ejecuta:
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```sh
+flutter pub get
+```
+
+## Uso
+
+Importa el paquete en tu archivo Dart:
+
+```dart
+import 'package:monolegal_http/monolegal_http.dart';
+```
+
+Ejemplo básico de uso:
+
+```dart
+Future post(Map<String, Object?> data) async {
+    var urlBase = urlBaseApi;
+    var apiKey = apiKeyBase;
+
+    return await _http.request(
+      "$urlBase/Account",
+      method: HttpMethod.post,
+      headers: {
+        'Accept': '*/*',
+        'Content-Type': 'application/json',
+        'Authorization': apiKey
+      },
+      body: data,
+    );
+  }
+```
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
